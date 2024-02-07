@@ -15,7 +15,7 @@ camadas = 3
 variaveis_iniciais = 2
 nucleos_de_saida = 1
 nucleos_intermediarias = 2
-maximo_de_epoca = 1e6
+maximo_de_epoca = 1e3
 taxa_aprendizagem = 0.1
 precisao_requerida = 1e-7 # 1*10^-7
 def importTable() -> Tuple[pd.DataFrame, pd.DataFrame]:
@@ -235,9 +235,21 @@ if __name__ == '__main__':
     
     # Apuração dos resultados 
     
-    
+    print(f"epoca : {epoca}")
     print (f"Pesos: {matrizW2}")
-    print(f"Tabela: {X_array} ")
+    # print(f"Tabela: {X_array} ")
+    print(f"diferença erro : {aux} ")
+    
+    with open("data.txt", "a") as file:
+        file.write(f"centros : {centers}\n")
+        file.write(f"variancias : {variancia_calculada}\n")
+        file.write(f"\n")
+        file.write(f"epoca : {epoca}\n")
+        file.write(f"Pesos: {matrizW2}\n")
+        file.write(f"diferença erro : {aux} \n")
+        # file.write(f"validacao : {epoca}\n")
+        file.write(f"--------------------------- \n")
+        
     # Retorna os Valores obtidos
     
     
